@@ -1,13 +1,214 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+    --yellow: #FFC000;
+    --gray : #F7F7F7;
+    --white : #FFFFFF;
+    --gray2: #EDEDED;
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+::placeholder {
+    color: #B8B8B8;
+    font-size: 0.8rem;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+*::before {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+*::after {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.App  {
+    margin: 5% auto;
+    max-width: 640px;
+    width: 90%;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: var(--dark-shadow);
+    
+}
+.light-mode {
+    background-color: var(--gray2);
+    color: #000;
+}
+.dark-mode {
+    background-color: rgb(44, 42, 42);
+    color: var(--white);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button {
+    cursor: pointer;
+    border: 0;
+}
+li {
+    list-style: none;
+}
+svg {
+    width: 20px;
+    height: 20px;
+}
+.App header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+.App header h2 {
+    color: rgb(110, 113, 194);
+}
+.App header button {
+    padding: .2rem .3rem;
+    border-radius: 50%;
+}
+.App .search {
+    position: relative;
+}
+.App .search input {
+    width: 100%;
+    font-size: .9rem;
+    padding: .6rem .5rem;
+    padding-left: 2.5rem;
+    margin-bottom: 1rem;
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    background: var(--gray);
+}
+.App .search .search-icon {
+    position: absolute;
+    bottom: 50%;
+    left: 2%;
+    color: #888;
+    width: 18px;
+    height: 18px;
+}
+.App .uncompleted li, 
+.App .completed li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.App .uncompleted li .title, 
+.App .completed li .title {
+    flex-basis: 80%;
+    margin: .5rem 0;
+    display: flex;
+    justify-content: start;
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 10px;
+    gap: 1rem;
+}
+.App .uncompleted li .dark-mode,
+.App .completed li .dark-mode{
+    background-color: #000;
+    color: var(--white);
+}
+.App .uncompleted li .title .checkbox,
+.App .completed li .title .checkbox {
+    accent-color: var(--yellow);
+    color: var(--white);
+    cursor: pointer;
+}
+.App .completed li .title {
+    opacity: 0.4;
+}
+.App .completed li .title .task-text {
+    text-decoration: line-through;
+}
+.App .uncompleted li .btn,
+.completed li .btn {
+    flex-basis: 20%;
+    display: flex;
+    justify-content: space-between;
+    gap: .4rem;
+}
+.App .uncompleted li .btn .trash-btn,
+.completed li .btn .trash-btn {
+    background-color: rgb(61, 28, 28);
+    padding: .5rem;
+    border-radius: 50%;
+    margin-left: .3rem;
+}
+.App .uncompleted li .btn .trash-btn:hover,
+.completed li .btn .trash-btn:hover {
+    background-color: rgb(248, 87, 87) ;
+    padding: .5rem;
+    border-radius: 50%;
+}
+.App .uncompleted li .btn .edit-btn,
+.completed li .btn .edit-btn {
+    background-color: rgb(110, 113, 194);
+    padding: .5rem;
+    border-radius: 50%;
+}
+.completed {
+    margin-top: 1rem;
+}
+.completed .toggle {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+.completed .toggle button {
+    border-radius: 50%;
+    padding: .25rem .3rem .15rem;
+}
+.completed .toggle svg {
+    width: 15px;
+    height: 15px;
+}
+.completed .toggle h5 {
+    margin-left: .3rem;
+    font-size: .7rem;
+}
+.App .form button {
+    width: 100%;
+    margin-bottom: 2rem;
+    background: transparent;
+}
+.App .form button svg {
+    background-color: var(--yellow);
+    margin-top: 1rem;
+    padding: .8rem;
+    border-radius: 50%;
+    color: var(--white);
+    float: right;
+}
+.App .form .input {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+.App .form input { 
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: .7rem;
+    outline: 0;
+    font-size: 1rem;
+}
+.App .form .input button {
+    color: var(--white);
+    background: rgb(110, 113, 194);
+    height: fit-content;
+    padding: .7rem;
+    letter-spacing: 3px;
+    border-radius: 4px;
+    transition: 2s;
+    font-size: 0.85rem;
+    margin-top: .5rem;
+}
+.App .form .input button:hover {
+    background-color: rgb(110, 113, 194);
+}
+.App .form .hidden {
+    display: none;
 }
